@@ -4,16 +4,16 @@ import java.util.ArrayList;
 
 public class Cell {
 
-    //private State state;
+    private CellState state;
     private ArrayList<Cell> neighbours;
     public Cell() {
         neighbours = new ArrayList<>(8);
-        //state      = new State();
+        state      = new DeadCellState();
     }
 
-    //public State getState() { return state; }
+    public CellState getState() { return state; }
 
-    //public void changeState(State newState) { state = newState; }
+    public void changeState(CellState newState) { state = newState; }
 
     public ArrayList<Cell> getNeighbours() { return neighbours; }
 
