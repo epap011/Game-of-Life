@@ -9,6 +9,11 @@ public class DeadCellState implements CellState {
 
     @Override
     public CellState die() {
-        return this;
+        return null;
+    }
+
+    @Override
+    public CellState survive() {
+        return null;
     }
 }
