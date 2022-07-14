@@ -16,7 +16,6 @@ public class Grid {
         assignNeighboursToCells();
     }
 
-    //TODO implement copy constructor
     public Grid(Grid grid) {
         this(grid.getRows(), grid.getCols());
 

@@ -8,20 +8,11 @@ public class Cell {
     private ArrayList<Cell> neighbours;
 
     private int aliveNeighbours;
+
     public Cell() {
         neighbours      = new ArrayList<>(8);
         state           = new DeadCellState();
         aliveNeighbours = 0;
-    }
-
-    public Cell(Cell cell) {
-
-        neighbours = new ArrayList<>(8);
-        for (int i = 0; i < 8; i++) {
-            neighbours.add(new Cell());
-        }
-        state           = cell.getState();
-        aliveNeighbours = cell.getNumberOfAliveNeighbours();
     }
 
     public void setState(CellState state) {
@@ -43,11 +34,8 @@ public class Cell {
     public void survive() {
         state = state.survive();
     }
-    public ArrayList<Cell> getNeighbours() { return neighbours; }
 
     public void setNeighbours(ArrayList<Cell> neighbours) { this.neighbours = neighbours; }
-
-    public int getNumberOfNeighbours() { return neighbours.size(); }
 
     public void setAliveNeighbours(int aliveNeighbours) {
         this.aliveNeighbours = aliveNeighbours;
