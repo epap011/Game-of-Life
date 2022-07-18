@@ -3,7 +3,7 @@ package com.freespirit.model;
 public class DeadCellState implements CellState {
 
     @Override
-    public CellState resurrect() {
+    public CellState born() {
         return new AliveCellState();
     }
 

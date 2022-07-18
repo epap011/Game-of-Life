@@ -40,16 +40,6 @@ public class Grid {
         System.out.println();
     }
 
-    public void printAliveNeighboursOfCells() {
-        System.out.println();
-        for (int i = 0; i < getRows(); i++) {
-            for (int j = 0; j < getCols(); j++) {
-                System.out.print("    (" + i + "," + j + "): " + cells.get(i).get(j).getNumberOfAliveNeighbours());
-            }
-            System.out.println();
-        }
-    }
-
     public void clearGrid() {
         for (ArrayList<Cell> row : cells) {
             for (Cell cell : row) {
@@ -64,10 +54,10 @@ public class Grid {
 
     public ArrayList<ArrayList<Cell>> getCells() { return cells; }
     private void initializeCells() {
-        cells = new ArrayList<ArrayList<Cell>>(rows);
+        cells = new ArrayList<>(rows);
 
         for (int i = 0; i < rows; i++) {
-            cells.add(new ArrayList<Cell>(cols));
+            cells.add(new ArrayList<>(cols));
         }
 
         for (ArrayList<Cell> row : cells) {

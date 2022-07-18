@@ -26,8 +26,8 @@ public class Cell {
         updateNeighbours();
     }
 
-    public void resurrect() {
-        state = state.resurrect();
+    public void born() {
+        state = state.born();
         updateNeighbours();
     }
 

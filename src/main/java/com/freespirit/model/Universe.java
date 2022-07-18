@@ -24,7 +24,7 @@ public class Universe {
                         nextGenGrid.getCells().get(i).get(j).survive();
                 } else {
                     if (grid.getCells().get(i).get(j).getNumberOfAliveNeighbours() == 3)
-                        nextGenGrid.getCells().get(i).get(j).resurrect();
+                        nextGenGrid.getCells().get(i).get(j).born();
                 }
             }
         }
@@ -40,8 +40,8 @@ public class Universe {
     public void dieAt(int row, int col) {
         grid.getCells().get(row).get(col).die();
     }
-    public void resurrectAt(int row, int col) {
-        grid.getCells().get(row).get(col).resurrect();
+    public void bornAt(int row, int col) {
+        grid.getCells().get(row).get(col).born();
     }
 
     public boolean isCellAliveAt(int row, int col) {
