@@ -4,10 +4,12 @@ public class Universe {
 
     private Grid grid;
     private int generation;
+    private int population;
 
     public Universe(int rows, int cols) {
         grid = new Grid(rows, cols);
         generation = 0;
+        population = 0;
     }
 
     public void computeNextGeneration() {
@@ -33,15 +35,17 @@ public class Universe {
     }
 
     public void printCurrentGeneration() {
-        System.out.println("Generation " + generation);
+        System.out.println("Generation " + generation + " | Population: " + population);
         grid.printGrid();
     }
 
     public void dieAt(int row, int col) {
         grid.getCells().get(row).get(col).die();
+        population--;
     }
     public void bornAt(int row, int col) {
         grid.getCells().get(row).get(col).born();
+        population++;
     }
 
     public boolean isCellAliveAt(int row, int col) {
@@ -51,6 +55,8 @@ public class Universe {
     public int getGeneration() {
         return generation;
     }
+
+    public int getPopulation() { return population; }
 
     public Grid getGrid() { return grid; }
 }
