@@ -1,6 +1,6 @@
 package com.freespirit.model;
 
-public class Universe {
+public class  Universe {
 
     private Grid grid;
     private int generation;

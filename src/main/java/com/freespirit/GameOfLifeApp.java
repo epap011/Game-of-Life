@@ -13,8 +13,8 @@ public class GameOfLifeApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(GameOfLifeApp.class.getResource("/com.freespirit/game_of_life-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 500, 300);
+        FXMLLoader fxmlLoader = new FXMLLoader(GameOfLifeApp.class.getResource("/com.freespirit/fxml/main.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Conway's Game of Life");
         stage.setScene(scene);
         stage.show();
