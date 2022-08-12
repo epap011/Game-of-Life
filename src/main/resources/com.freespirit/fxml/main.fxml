@@ -2,8 +2,9 @@
 
 <?import javafx.scene.layout.*?>
 
-<HBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.freespirit.controllers.MainController">
 
+    <fx:include fx:id="navigationBar" source="navigationBar.fxml" />
     <fx:include fx:id="boardGame" source="boardGame.fxml" />
-</HBox>
+</VBox>

@@ -54,4 +54,8 @@ public class BoardGameController {
             eventSourceRectangle.setFill(Color.BLACK);
         }
     }
+
+    public void computeNextGeneration() {
+        universe.computeNextGeneration();
+    }
 }
