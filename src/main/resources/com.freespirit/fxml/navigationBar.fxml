@@ -6,14 +6,14 @@
 <HBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:id="navBar" fx:controller="com.freespirit.controllers.NavigationBarController" >
-    
-    <Button text="PLAY">
+
+    <Button fx:id="startButton" text="START" >
 
     </Button>
-    <Button text="NEXT">
+    <Button fx:id="nextButton" text="NEXT" >
 
     </Button>
-    <Button text="PAUSE">
+    <Button fx:id="pauseButton" text="PAUSE" >
 
     </Button>
 </HBox>

@@ -12,7 +12,8 @@ public class MainController {
     @FXML private void initialize() {
         Universe universe = new Universe(40, 70);
         boardGameController.setUniverse(universe);
-        gameLoopController = new GameLoopController();
+
+        gameLoopController = new GameLoopController(navigationBarController);
         gameLoopController.start();
     }
 
