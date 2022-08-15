@@ -1,5 +1,6 @@
 package com.freespirit.controllers;
 
+import com.freespirit.model.CellState;
 import com.freespirit.model.Universe;
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
@@ -7,6 +8,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.StrokeType;
+
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
 public class BoardGameController {
 
@@ -39,6 +43,20 @@ public class BoardGameController {
 
     public void setUniverse(Universe universe) {
         this.universe = universe;
+        initializeChangeListeners();
+    }
+
+    private void initializeChangeListeners() {
+        for (int i = 0; i < GRID_ROW_SIZE; i++) {
+            for (int j = 0; j < GRID_COL_SIZE; j++) {
+                universe.getGrid().getCells().get(i).get(j).addPropertyChangeListener(new PropertyChangeListener() {
+                    @Override
+                    public void propertyChange(PropertyChangeEvent evt) {
+                        System.out.println("Cell changed");
+                    }
+                });
+            }
+        }
     }
 
     private void mouseClickedEvent(MouseEvent e) {
