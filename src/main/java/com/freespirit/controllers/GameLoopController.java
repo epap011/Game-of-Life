@@ -40,19 +40,10 @@ public class GameLoopController extends Thread {
     }
 
     private void handleNextButtonClickEvent() {
-        System.out.println("next button pressed");
         boardGameController.computeNextGeneration();
     }
 
     private void handlePauseButtonClickEvent() {
-        System.out.println("pause button pressed");
         running = false;
-    }
-
-    private void updateGameState() {
-    }
-
-    private void displayGameState() {
-
     }
 }
