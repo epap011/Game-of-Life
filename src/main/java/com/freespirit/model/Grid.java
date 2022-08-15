@@ -23,6 +23,7 @@ public class Grid {
             for (int j = 0; j < cols; j++) {
                 this.cells.get(i).get(j).setState(grid.getCells().get(i).get(j).getState());
                 this.cells.get(i).get(j).setAliveNeighbours(grid.getCells().get(i).get(j).getNumberOfAliveNeighbours());
+                this.cells.get(i).get(j).setPropertyChangeSupport(grid.getCells().get(i).get(j).getPropertyChangeSupport());
             }
         }
     }

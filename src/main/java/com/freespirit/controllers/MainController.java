@@ -11,9 +11,16 @@ public class MainController {
 
     @FXML private void initialize() {
         Universe universe = new Universe(40, 70);
+
         boardGameController.setUniverse(universe);
 
-        gameLoopController = new GameLoopController(navigationBarController);
+        universe.getGrid().getCells().get(20).get(35).born();
+        universe.getGrid().getCells().get(21).get(36).born();
+        universe.getGrid().getCells().get(22).get(36).born();
+        universe.getGrid().getCells().get(22).get(35).born();
+        universe.getGrid().getCells().get(22).get(34).born();
+
+        gameLoopController = new GameLoopController(navigationBarController, boardGameController);
         gameLoopController.start();
     }
 

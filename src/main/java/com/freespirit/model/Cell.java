@@ -3,7 +3,6 @@ package com.freespirit.model;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
-import java.util.Properties;
 
 public class Cell {
     PropertyChangeSupport propertyChangeSupport;
@@ -14,10 +13,10 @@ public class Cell {
     private int aliveNeighbours;
 
     public Cell() {;
-        propertyChangeSupport = new PropertyChangeSupport(this);
-        neighbours      = new ArrayList<>(8);
-        state           = new DeadCellState();
-        aliveNeighbours = 0;
+        neighbours            = new ArrayList<>(8);
+        state                 = new DeadCellState();
+        propertyChangeSupport = new PropertyChangeSupport(state);
+        aliveNeighbours       = 0;
     }
 
     public void addPropertyChangeListener(PropertyChangeListener propertyChangeListener) {
@@ -50,6 +49,14 @@ public class Cell {
 
     public void survive() {
         state = state.survive();
+    }
+
+    public PropertyChangeSupport getPropertyChangeSupport() {
+        return propertyChangeSupport;
+    }
+
+    public void setPropertyChangeSupport(PropertyChangeSupport propertyChangeSupport) {
+        this.propertyChangeSupport = propertyChangeSupport;
     }
 
     public void setNeighbours(ArrayList<Cell> neighbours) { this.neighbours = neighbours; }

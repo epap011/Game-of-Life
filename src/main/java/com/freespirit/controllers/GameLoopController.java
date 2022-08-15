@@ -1,21 +1,22 @@
 package com.freespirit.controllers;
 
+import com.freespirit.model.Universe;
+
 public class GameLoopController extends Thread {
 
     private final static int MAX_FPS      = 30;
     private final static int FRAME_PERIOD = 1000/MAX_FPS;
     private NavigationBarController navigationBarController;
+    private BoardGameController boardGameController;
 
-    public GameLoopController(NavigationBarController navigationBarController) {
+    public GameLoopController(NavigationBarController navigationBarController, BoardGameController boardGameController) {
         this.navigationBarController = navigationBarController;
-        initNavigationBarButtonHandlers();
+        this.boardGameController     = boardGameController;
+        this.initNavigationBarButtonHandlers();
     }
 
     public void run() {
-        while (true) {
-            updateGameState();
-            displayGameState();
-        }
+
     }
 
     private void initNavigationBarButtonHandlers() {
@@ -30,6 +31,7 @@ public class GameLoopController extends Thread {
 
     private void handleNextButtonClickEvent() {
         System.out.println("next button pressed");
+        boardGameController.computeNextGeneration();
     }
 
     private void handlePauseButtonClickEvent() {
@@ -37,7 +39,6 @@ public class GameLoopController extends Thread {
     }
 
     private void updateGameState() {
-
     }
 
     private void displayGameState() {
