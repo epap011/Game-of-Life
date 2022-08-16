@@ -4,6 +4,7 @@ public class GameLoopController extends Thread {
 
     private final static int MAX_FPS      = 30;
     private final static int FRAME_PERIOD = 1000/MAX_FPS;
+    private int speed                     = 300;
     private boolean running;
     private NavigationBarController navigationBarController;
     private BoardGameController boardGameController;
@@ -18,13 +19,18 @@ public class GameLoopController extends Thread {
     public void run() {
 
         while(true) {
-            while (running) {
-                try {
-                    Thread.sleep(400);
-                    boardGameController.computeNextGeneration();
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
+            try {
+                Thread.sleep(100);
+                while (running) {
+                    try {
+                        Thread.sleep(speed);
+                        boardGameController.computeNextGeneration();
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
         }
     }
@@ -46,4 +52,5 @@ public class GameLoopController extends Thread {
     private void handlePauseButtonClickEvent() {
         running = false;
     }
+
 }

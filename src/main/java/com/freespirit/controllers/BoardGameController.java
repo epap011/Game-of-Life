@@ -15,13 +15,13 @@ import java.beans.PropertyChangeListener;
 public class BoardGameController {
 
     Universe universe;
-    private final int GRID_ROW_SIZE = 40;
-    private final int GRID_COL_SIZE = 70;
-    private final int RECT_SIZE     = 10;
+    private int GRID_ROW_SIZE;
+    private int GRID_COL_SIZE;
+    private final int RECT_SIZE  = 10;
     @FXML private GridPane grid;
     private Rectangle[][] rectangles;
 
-    @FXML private void initialize() {
+    private void initialize() {
         initializeGridRectangles();
     }
 
@@ -40,6 +40,9 @@ public class BoardGameController {
 
     public void setUniverse(Universe universe) {
         this.universe = universe;
+        GRID_ROW_SIZE = universe.getGrid().getRows();
+        GRID_COL_SIZE = universe.getGrid().getCols();
+        initialize();
         initializeChangeListeners();
     }
 

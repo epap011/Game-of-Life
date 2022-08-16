@@ -10,7 +10,7 @@ public class MainController {
     private GameLoopController gameLoopController;
 
     @FXML private void initialize() {
-        Universe universe = new Universe(40, 70);
+        Universe universe = new Universe(100, 100);
 
         boardGameController.setUniverse(universe);
 
