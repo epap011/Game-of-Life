@@ -1,5 +1,8 @@
 package com.freespirit.controllers;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+
 public class GameLoopController extends Thread {
 
     private final static int MAX_FPS      = 30;
@@ -39,6 +42,14 @@ public class GameLoopController extends Thread {
         navigationBarController.setStartButtonEventHandler(actionEvent -> handleStartButtonClickEvent());
         navigationBarController.setNextButtonEventHandler(actionEvent  -> handleNextButtonClickEvent());
         navigationBarController.setPauseButtonEventHandler(actionEvent -> handlePauseButtonClickEvent());
+        navigationBarController.setSpeedSliderLister(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue, Number oldValue, Number newValue) {
+                System.out.println("Speed " + newValue.intValue() + " ms");
+                speed = newValue.intValue();
+
+            }
+        });
     }
 
     private void handleStartButtonClickEvent() {
@@ -51,6 +62,10 @@ public class GameLoopController extends Thread {
 
     private void handlePauseButtonClickEvent() {
         running = false;
+    }
+
+    private void handleSpeedSliderEvent() {
+
     }
 
 }
